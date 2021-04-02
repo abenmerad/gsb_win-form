@@ -41,15 +41,15 @@ namespace gsb_application
             this.cmb_Visiteur = new System.Windows.Forms.ComboBox();
             this.dataGrid_listeMedicament = new System.Windows.Forms.DataGridView();
             this.btn_ajoutMedicament = new System.Windows.Forms.Button();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.medicamentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bndSrcMedecin = new System.Windows.Forms.BindingSource(this.components);
             this.bndSrcVisiteur = new System.Windows.Forms.BindingSource(this.components);
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid_listeMedicament)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.medicamentBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bndSrcMedecin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bndSrcVisiteur)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // lbl_medecin
@@ -116,7 +116,7 @@ namespace gsb_application
             // 
             // cmb_Medecin
             // 
-            this.cmb_Medecin.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmb_Medecin.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmb_Medecin.FormattingEnabled = true;
             this.cmb_Medecin.Location = new System.Drawing.Point(178, 31);
             this.cmb_Medecin.Name = "cmb_Medecin";
@@ -125,6 +125,7 @@ namespace gsb_application
             // 
             // cmb_Visiteur
             // 
+            this.cmb_Visiteur.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmb_Visiteur.FormattingEnabled = true;
             this.cmb_Visiteur.Location = new System.Drawing.Point(512, 31);
             this.cmb_Visiteur.Name = "cmb_Visiteur";
@@ -153,6 +154,10 @@ namespace gsb_application
             this.btn_ajoutMedicament.UseVisualStyleBackColor = true;
             this.btn_ajoutMedicament.Click += new System.EventHandler(this.btn_ajoutMedicament_Click);
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // medicamentBindingSource
             // 
             this.medicamentBindingSource.DataSource = typeof(gsb_application.medicament);
@@ -164,10 +169,6 @@ namespace gsb_application
             // bndSrcVisiteur
             // 
             this.bndSrcVisiteur.DataSource = typeof(gsb_application.visiteur);
-            // 
-            // errorProvider1
-            // 
-            this.errorProvider1.ContainerControl = this;
             // 
             // AjouterRapportMenu
             // 
@@ -190,10 +191,10 @@ namespace gsb_application
             this.Text = "AjouterRapportMenu";
             this.Load += new System.EventHandler(this.AjouterRapportMenu_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid_listeMedicament)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.medicamentBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bndSrcMedecin)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bndSrcVisiteur)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
