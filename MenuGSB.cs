@@ -12,9 +12,17 @@ namespace gsb_application
 {
     public partial class MenuGSB : Form
     {
+        private gsbEntities gsbData;
         public MenuGSB()
         {
             InitializeComponent();
+            this.gsbData = new gsbEntities();
+        }
+
+        private void visualisationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            VisualiserRapport menu = new VisualiserRapport(this.gsbData);
+            menu.Show();
         }
     }
 }
