@@ -30,16 +30,18 @@ namespace gsb_application
         private void InitializeComponent()
         {
             this.gb_med_qte = new System.Windows.Forms.GroupBox();
-            this.lbl_medicament = new System.Windows.Forms.Label();
-            this.qté = new System.Windows.Forms.Label();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.cmb_qte = new System.Windows.Forms.ComboBox();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.qté = new System.Windows.Forms.Label();
+            this.lbl_medicament = new System.Windows.Forms.Label();
             this.gb_date = new System.Windows.Forms.GroupBox();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.lbl_date = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btn_valider = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.btn_add = new System.Windows.Forms.Button();
+            this.btn_sup = new System.Windows.Forms.Button();
             this.gb_med_qte.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.gb_date.SuspendLayout();
@@ -53,30 +55,19 @@ namespace gsb_application
             this.gb_med_qte.Controls.Add(this.dataGridView2);
             this.gb_med_qte.Controls.Add(this.qté);
             this.gb_med_qte.Controls.Add(this.lbl_medicament);
-            this.gb_med_qte.Location = new System.Drawing.Point(238, 129);
+            this.gb_med_qte.Location = new System.Drawing.Point(238, 143);
             this.gb_med_qte.Name = "gb_med_qte";
             this.gb_med_qte.Size = new System.Drawing.Size(458, 145);
             this.gb_med_qte.TabIndex = 0;
             this.gb_med_qte.TabStop = false;
             // 
-            // lbl_medicament
+            // cmb_qte
             // 
-            this.lbl_medicament.AutoSize = true;
-            this.lbl_medicament.Location = new System.Drawing.Point(15, 42);
-            this.lbl_medicament.Name = "lbl_medicament";
-            this.lbl_medicament.Size = new System.Drawing.Size(96, 20);
-            this.lbl_medicament.TabIndex = 0;
-            this.lbl_medicament.Text = "Médicament";
-            this.lbl_medicament.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // qté
-            // 
-            this.qté.AutoSize = true;
-            this.qté.Location = new System.Drawing.Point(15, 90);
-            this.qté.Name = "qté";
-            this.qté.Size = new System.Drawing.Size(67, 20);
-            this.qté.TabIndex = 1;
-            this.qté.Text = "quantité";
+            this.cmb_qte.FormattingEnabled = true;
+            this.cmb_qte.Location = new System.Drawing.Point(117, 82);
+            this.cmb_qte.Name = "cmb_qte";
+            this.cmb_qte.Size = new System.Drawing.Size(142, 28);
+            this.cmb_qte.TabIndex = 4;
             // 
             // dataGridView2
             // 
@@ -88,23 +79,41 @@ namespace gsb_application
             this.dataGridView2.Size = new System.Drawing.Size(142, 30);
             this.dataGridView2.TabIndex = 3;
             // 
-            // cmb_qte
+            // qté
             // 
-            this.cmb_qte.FormattingEnabled = true;
-            this.cmb_qte.Location = new System.Drawing.Point(117, 82);
-            this.cmb_qte.Name = "cmb_qte";
-            this.cmb_qte.Size = new System.Drawing.Size(142, 28);
-            this.cmb_qte.TabIndex = 4;
+            this.qté.AutoSize = true;
+            this.qté.Location = new System.Drawing.Point(15, 90);
+            this.qté.Name = "qté";
+            this.qté.Size = new System.Drawing.Size(67, 20);
+            this.qté.TabIndex = 1;
+            this.qté.Text = "quantité";
+            // 
+            // lbl_medicament
+            // 
+            this.lbl_medicament.AutoSize = true;
+            this.lbl_medicament.Location = new System.Drawing.Point(15, 42);
+            this.lbl_medicament.Name = "lbl_medicament";
+            this.lbl_medicament.Size = new System.Drawing.Size(96, 20);
+            this.lbl_medicament.TabIndex = 0;
+            this.lbl_medicament.Text = "Médicament";
+            this.lbl_medicament.Click += new System.EventHandler(this.label1_Click);
             // 
             // gb_date
             // 
             this.gb_date.Controls.Add(this.dateTimePicker1);
             this.gb_date.Controls.Add(this.lbl_date);
-            this.gb_date.Location = new System.Drawing.Point(238, 306);
+            this.gb_date.Location = new System.Drawing.Point(257, 488);
             this.gb_date.Name = "gb_date";
             this.gb_date.Size = new System.Drawing.Size(458, 95);
             this.gb_date.TabIndex = 1;
             this.gb_date.TabStop = false;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(100, 47);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 26);
+            this.dateTimePicker1.TabIndex = 6;
             // 
             // lbl_date
             // 
@@ -128,7 +137,7 @@ namespace gsb_application
             // 
             // btn_valider
             // 
-            this.btn_valider.Location = new System.Drawing.Point(403, 425);
+            this.btn_valider.Location = new System.Drawing.Point(444, 614);
             this.btn_valider.Name = "btn_valider";
             this.btn_valider.Size = new System.Drawing.Size(179, 41);
             this.btn_valider.TabIndex = 2;
@@ -144,18 +153,33 @@ namespace gsb_application
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
             // 
-            // dateTimePicker1
+            // btn_add
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(100, 47);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 26);
-            this.dateTimePicker1.TabIndex = 6;
+            this.btn_add.Location = new System.Drawing.Point(415, 303);
+            this.btn_add.Name = "btn_add";
+            this.btn_add.Size = new System.Drawing.Size(142, 37);
+            this.btn_add.TabIndex = 6;
+            this.btn_add.Text = "Ajouter";
+            this.btn_add.UseVisualStyleBackColor = true;
+            this.btn_add.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // btn_sup
+            // 
+            this.btn_sup.Location = new System.Drawing.Point(720, 225);
+            this.btn_sup.Name = "btn_sup";
+            this.btn_sup.Size = new System.Drawing.Size(142, 37);
+            this.btn_sup.TabIndex = 7;
+            this.btn_sup.Text = "supprimer";
+            this.btn_sup.UseVisualStyleBackColor = true;
+            this.btn_sup.Click += new System.EventHandler(this.button2_Click);
             // 
             // modifierRapport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(952, 489);
+            this.ClientSize = new System.Drawing.Size(952, 736);
+            this.Controls.Add(this.btn_sup);
+            this.Controls.Add(this.btn_add);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btn_valider);
             this.Controls.Add(this.dataGridView1);
@@ -188,5 +212,7 @@ namespace gsb_application
         private System.Windows.Forms.Button btn_valider;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Button btn_add;
+        private System.Windows.Forms.Button btn_sup;
     }
 }
