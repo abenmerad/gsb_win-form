@@ -45,10 +45,20 @@ namespace gsb_application
             }
         }
 
+        private int getMaxIdRapport()
+        {
+            var query = (from rap in this.gsbData.rapport select rap).Max(rap => rap.id);
+            return (int)query; 
+        }
         private medecin getMedecinParNomPrenom(string nom, string prenom)
         {
             var query = (from med in this.gsbData.medecin where med.prenom == prenom && med.nom == nom select med);
-            return (medecin)query;
+            return query.First();
+        }
+        private visiteur getVisiteurParNomPrenom(string nom, string prenom)
+        {
+            var query = (from vis in this.gsbData.visiteur where vis.prenom == prenom && vis.nom == nom select vis);
+            return query.First();
         }
         private void AjouterRapportMenu_Load(object sender, EventArgs e)
         {
@@ -104,8 +114,37 @@ namespace gsb_application
             }
             else
             {
-                rapport nouveauRapport = new rapport();
-                nouveauRapport.date = DateTime.Now();
+                try
+                {
+                    rapport nouveauRapport = new rapport();
+                    string medecin = cmb_Medecin.SelectedItem.ToString();
+                    string visiteur = cmb_Visiteur.SelectedItem.ToString();
+                    int idNouveauRapport = getMaxIdRapport() + 1;
+                    nouveauRapport.date = DateTime.Now;
+                    nouveauRapport.motif = this.richTxt_motif.Text;
+                    nouveauRapport.bilan = this.richTxt_bilan.Text;
+                    nouveauRapport.idMedecin = getMedecinParNomPrenom(medecin.Split(' ')[0], medecin.Split(' ')[1]).id;
+                    nouveauRapport.idVisiteur = getVisiteurParNomPrenom(visiteur.Split(' ')[0], visiteur.Split(' ')[1]).id;
+                    this.gsbData.rapport.Add(nouveauRapport);
+                    this.gsbData.SaveChanges();
+                    foreach (Medic m in this.lesMedicaments)
+                    {
+                        offrir nouvelleOffre = new offrir();
+                        nouvelleOffre.idMedicament = m.idMedicament;
+                        nouvelleOffre.idRapport = idNouveauRapport;
+                        nouvelleOffre.quantite = Convert.ToInt32(m.quantiteMedicament);
+                        richTxt_bilan.Text += nouvelleOffre.idMedicament + " - " + nouvelleOffre.idRapport + " - " + nouvelleOffre.quantite + "\n";
+                        this.gsbData.offrir.Add(nouvelleOffre);
+                        
+                    }
+                    this.gsbData.SaveChanges();
+                    this.Close();
+                }
+                catch(Exception except)
+                {
+                    MessageBox.Show(except.ToString());
+                }
+
             }
         }
     }
