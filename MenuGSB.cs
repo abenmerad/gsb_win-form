@@ -24,5 +24,10 @@ namespace gsb_application
             AjouterRapportMenu menu = new AjouterRapportMenu(this.gsbData);
             menu.Show();
         }
+
+        private void MenuGSB_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

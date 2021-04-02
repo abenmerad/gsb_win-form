@@ -67,6 +67,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AjouterMedicament.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AjouterMedicament.Designer.cs">
+      <DependentUpon>AjouterMedicament.cs</DependentUpon>
+    </Compile>
     <Compile Include="AjouterRapportMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -76,6 +82,7 @@
     <Compile Include="famille.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Medic.cs" />
     <Compile Include="MenuGSB.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -114,6 +121,9 @@
     <Compile Include="visiteur.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AjouterMedicament.resx">
+      <DependentUpon>AjouterMedicament.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AjouterRapportMenu.resx">
       <DependentUpon>AjouterRapportMenu.cs</DependentUpon>
     </EmbeddedResource>
@@ -138,6 +148,7 @@
     </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\medecin.datasource" />
+    <None Include="Properties\DataSources\Medic.datasource" />
     <None Include="Properties\DataSources\medicament.datasource" />
     <None Include="Properties\DataSources\visiteur.datasource" />
     <None Include="Properties\Settings.settings">
