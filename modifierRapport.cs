@@ -11,19 +11,28 @@ using System.Windows.Forms;
 namespace gsb_application
 {
     
-    public partial class MenuGSB : Form
+    public partial class modifierRapport : Form
     {
         private gsbEntities gsbData;
-        public MenuGSB()
+        public modifierRapport(gsbEntities gsbData)
         {
             InitializeComponent();
-            this.gsbData = new gsbEntities();
+            this.gsbData = gsbData;
+
         }
 
-        private void modifierToolStripMenuItem_Click(object sender, EventArgs e)
+        private void modifierRapport_Load(object sender, EventArgs e)
         {
-            modifierRapport menu = new modifierRapport(this.gsbData);
-            menu.Show();
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbl_date_Click(object sender, EventArgs e)
+        {
 
         }
     }
