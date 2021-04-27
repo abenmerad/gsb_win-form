@@ -29,5 +29,11 @@ namespace gsb_application
         {
 
         }
+
+        private void visualisationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            VisualiserRapportMenu menu = new VisualiserRapportMenu(this.gsbData);
+            menu.ShowDialog();
+        }
     }
 }

@@ -8,24 +8,30 @@ namespace gsb_application
 {
     public class Medic
     {
-        public string idMedicament { get; set; }
-        public string nomMedicament { get; set; }
-        public string familleMedicament { get; set; }
-        public string quantiteMedicament { get; set; }
+        private string _idMedicament;
+        private string _nomMedicament;
+        private string _familleMedicament;
+        private int _quantiteMedicament;
+
+        public string IdMedicament { get => _idMedicament; }
+        public string NomMedicament { get => _nomMedicament; }
+        public string FamilleMedicament { get => _familleMedicament; }
+        public int QuantiteMedicament { get => _quantiteMedicament; set => _quantiteMedicament = value; }
+
 
         public Medic()
         {
-            this.idMedicament = "";
-            this.nomMedicament = "";
-            this.familleMedicament = "";
-            this.quantiteMedicament = "";
+            this._idMedicament = "";
+            this._nomMedicament = "";
+            this._familleMedicament = "";
+            this._quantiteMedicament = 0;
         }
-        public Medic(string id, string nom, string famille, string quantite)
+        public Medic(string id, string nom, string famille, int quantite)
         {
-            this.idMedicament = id;
-            this.nomMedicament = nom;
-            this.familleMedicament = famille;
-            this.quantiteMedicament = quantite;
+            this._idMedicament = id;
+            this._nomMedicament = nom;
+            this._familleMedicament = famille;
+            this._quantiteMedicament = quantite;
         }
     }
 }

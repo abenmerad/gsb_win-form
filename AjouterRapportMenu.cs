@@ -74,7 +74,6 @@ namespace gsb_application
                 string leVisiteur = vis.nom + " " + vis.prenom;
                 this.cmb_Visiteur.Items.Add(leVisiteur);
             }
-
         }
 
         private void btn_ajoutMedicament_Click(object sender, EventArgs e)
@@ -130,9 +129,9 @@ namespace gsb_application
                     foreach (Medic m in this.lesMedicaments)
                     {
                         offrir nouvelleOffre = new offrir();
-                        nouvelleOffre.idMedicament = m.idMedicament;
+                        nouvelleOffre.idMedicament = m.IdMedicament;
                         nouvelleOffre.idRapport = idNouveauRapport;
-                        nouvelleOffre.quantite = Convert.ToInt32(m.quantiteMedicament);
+                        nouvelleOffre.quantite = Convert.ToInt32(m.QuantiteMedicament);
                         richTxt_bilan.Text += nouvelleOffre.idMedicament + " - " + nouvelleOffre.idRapport + " - " + nouvelleOffre.quantite + "\n";
                         this.gsbData.offrir.Add(nouvelleOffre);
                         

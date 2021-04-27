@@ -296,7 +296,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="gsbEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="gsbEntities" annotation:LazyLoadingEnabled="false">
           <EntitySet Name="famille" EntityType="Self.famille" />
           <EntitySet Name="medecin" EntityType="Self.medecin" />
           <EntitySet Name="medicament" EntityType="Self.medicament" />

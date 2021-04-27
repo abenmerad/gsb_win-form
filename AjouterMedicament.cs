@@ -81,13 +81,13 @@ namespace gsb_application
         private void btn_validerNouveauMedicament_Click(object sender, EventArgs e)
         {
             medicament nouveauMedicament = getMedicamentParNom(this.cmb_medicament.SelectedItem.ToString());
-            Medic leMedicament = new Medic(nouveauMedicament.id, nouveauMedicament.nomCommercial, nouveauMedicament.famille.libelle, this.cmb_qteMedicament.SelectedItem.ToString());
+            Medic leMedicament = new Medic(nouveauMedicament.id, nouveauMedicament.nomCommercial, nouveauMedicament.famille.libelle, Convert.ToInt32(this.cmb_qteMedicament.SelectedItem.ToString()));
             int index = 0;
             bool isOccur = false;
 
             while(index < this.medic.Count && !isOccur)
             {
-                if(this.medic[index].nomMedicament == leMedicament.nomMedicament)
+                if(this.medic[index].NomMedicament == leMedicament.NomMedicament)
                 {
                     isOccur = true;
                 }
@@ -100,7 +100,7 @@ namespace gsb_application
             }
             else
             {
-                this.medic[index-1].quantiteMedicament = (Convert.ToInt32(this.medic[index-1].quantiteMedicament) + Convert.ToInt32(leMedicament.quantiteMedicament)).ToString();
+                this.medic[index - 1].QuantiteMedicament = Convert.ToInt32(this.medic[index - 1].QuantiteMedicament) + Convert.ToInt32(leMedicament.QuantiteMedicament.ToString());
             }
             this.DialogResult = DialogResult.OK;
             this.Close();
@@ -135,6 +135,11 @@ namespace gsb_application
             {
                 this.btn_validerNouveauMedicament.Enabled = false;
             }
+        }
+
+        private void grp_medicament_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

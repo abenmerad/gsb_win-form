@@ -42,14 +42,21 @@ namespace gsb_application
             this.dataGrid_listeMedicament = new System.Windows.Forms.DataGridView();
             this.btn_ajoutMedicament = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.mySqlDataAdapter1 = new MySql.Data.MySqlClient.MySqlDataAdapter();
             this.medicamentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bndSrcMedecin = new System.Windows.Forms.BindingSource(this.components);
             this.bndSrcVisiteur = new System.Windows.Forms.BindingSource(this.components);
+            this.medicBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.idMedicamentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nomMedicamentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.familleMedicamentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantiteMedicamentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid_listeMedicament)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.medicamentBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bndSrcMedecin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bndSrcVisiteur)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.medicBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // lbl_medecin
@@ -136,11 +143,20 @@ namespace gsb_application
             // 
             this.dataGrid_listeMedicament.AllowUserToAddRows = false;
             this.dataGrid_listeMedicament.AllowUserToDeleteRows = false;
+            this.dataGrid_listeMedicament.AutoGenerateColumns = false;
+            this.dataGrid_listeMedicament.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGrid_listeMedicament.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.dataGrid_listeMedicament.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGrid_listeMedicament.Location = new System.Drawing.Point(202, 103);
+            this.dataGrid_listeMedicament.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idMedicamentDataGridViewTextBoxColumn,
+            this.nomMedicamentDataGridViewTextBoxColumn,
+            this.familleMedicamentDataGridViewTextBoxColumn,
+            this.quantiteMedicamentDataGridViewTextBoxColumn});
+            this.dataGrid_listeMedicament.DataSource = this.medicBindingSource;
+            this.dataGrid_listeMedicament.Location = new System.Drawing.Point(12, 103);
             this.dataGrid_listeMedicament.Name = "dataGrid_listeMedicament";
             this.dataGrid_listeMedicament.ReadOnly = true;
-            this.dataGrid_listeMedicament.Size = new System.Drawing.Size(463, 96);
+            this.dataGrid_listeMedicament.Size = new System.Drawing.Size(776, 96);
             this.dataGrid_listeMedicament.TabIndex = 13;
             this.dataGrid_listeMedicament.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGrid_listeMedicament_CellContentClick);
             // 
@@ -158,6 +174,13 @@ namespace gsb_application
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // mySqlDataAdapter1
+            // 
+            this.mySqlDataAdapter1.DeleteCommand = null;
+            this.mySqlDataAdapter1.InsertCommand = null;
+            this.mySqlDataAdapter1.SelectCommand = null;
+            this.mySqlDataAdapter1.UpdateCommand = null;
+            // 
             // medicamentBindingSource
             // 
             this.medicamentBindingSource.DataSource = typeof(gsb_application.medicament);
@@ -169,6 +192,38 @@ namespace gsb_application
             // bndSrcVisiteur
             // 
             this.bndSrcVisiteur.DataSource = typeof(gsb_application.visiteur);
+            // 
+            // medicBindingSource
+            // 
+            this.medicBindingSource.DataSource = typeof(gsb_application.Medic);
+            // 
+            // idMedicamentDataGridViewTextBoxColumn
+            // 
+            this.idMedicamentDataGridViewTextBoxColumn.DataPropertyName = "IdMedicament";
+            this.idMedicamentDataGridViewTextBoxColumn.HeaderText = "IdMedicament";
+            this.idMedicamentDataGridViewTextBoxColumn.Name = "idMedicamentDataGridViewTextBoxColumn";
+            this.idMedicamentDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nomMedicamentDataGridViewTextBoxColumn
+            // 
+            this.nomMedicamentDataGridViewTextBoxColumn.DataPropertyName = "NomMedicament";
+            this.nomMedicamentDataGridViewTextBoxColumn.HeaderText = "NomMedicament";
+            this.nomMedicamentDataGridViewTextBoxColumn.Name = "nomMedicamentDataGridViewTextBoxColumn";
+            this.nomMedicamentDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // familleMedicamentDataGridViewTextBoxColumn
+            // 
+            this.familleMedicamentDataGridViewTextBoxColumn.DataPropertyName = "FamilleMedicament";
+            this.familleMedicamentDataGridViewTextBoxColumn.HeaderText = "FamilleMedicament";
+            this.familleMedicamentDataGridViewTextBoxColumn.Name = "familleMedicamentDataGridViewTextBoxColumn";
+            this.familleMedicamentDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // quantiteMedicamentDataGridViewTextBoxColumn
+            // 
+            this.quantiteMedicamentDataGridViewTextBoxColumn.DataPropertyName = "QuantiteMedicament";
+            this.quantiteMedicamentDataGridViewTextBoxColumn.HeaderText = "QuantiteMedicament";
+            this.quantiteMedicamentDataGridViewTextBoxColumn.Name = "quantiteMedicamentDataGridViewTextBoxColumn";
+            this.quantiteMedicamentDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // AjouterRapportMenu
             // 
@@ -195,6 +250,7 @@ namespace gsb_application
             ((System.ComponentModel.ISupportInitialize)(this.medicamentBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bndSrcMedecin)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bndSrcVisiteur)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.medicBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -217,5 +273,11 @@ namespace gsb_application
         private System.Windows.Forms.Button btn_ajoutMedicament;
         private System.Windows.Forms.BindingSource medicamentBindingSource;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private MySql.Data.MySqlClient.MySqlDataAdapter mySqlDataAdapter1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idMedicamentDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nomMedicamentDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn familleMedicamentDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn quantiteMedicamentDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource medicBindingSource;
     }
 }

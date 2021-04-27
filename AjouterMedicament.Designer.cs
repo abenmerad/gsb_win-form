@@ -31,21 +31,21 @@ namespace gsb_application
         {
             this.components = new System.ComponentModel.Container();
             this.grp_medicament = new System.Windows.Forms.GroupBox();
+            this.lbl_composition = new System.Windows.Forms.Label();
+            this.lbl_effets = new System.Windows.Forms.Label();
+            this.lbl_contreIndication = new System.Windows.Forms.Label();
+            this.btn_validerNouveauMedicament = new System.Windows.Forms.Button();
+            this.txt_composition = new System.Windows.Forms.TextBox();
+            this.txt_effets = new System.Windows.Forms.RichTextBox();
+            this.txt_contreIndications = new System.Windows.Forms.RichTextBox();
             this.cmb_medicament = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.cmb_qteMedicament = new System.Windows.Forms.ComboBox();
             this.cmb_familleMedicament = new System.Windows.Forms.ComboBox();
             this.lbl_qteMedicament = new System.Windows.Forms.Label();
             this.lbl_familleMedicament = new System.Windows.Forms.Label();
-            this.btn_validerNouveauMedicament = new System.Windows.Forms.Button();
             this.bndSrcMedicament = new System.Windows.Forms.BindingSource(this.components);
             this.bndSrcFamilleMedicament = new System.Windows.Forms.BindingSource(this.components);
-            this.txt_contreIndications = new System.Windows.Forms.RichTextBox();
-            this.txt_effets = new System.Windows.Forms.RichTextBox();
-            this.txt_composition = new System.Windows.Forms.TextBox();
-            this.lbl_contreIndication = new System.Windows.Forms.Label();
-            this.lbl_effets = new System.Windows.Forms.Label();
-            this.lbl_composition = new System.Windows.Forms.Label();
             this.grp_medicament.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bndSrcMedicament)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bndSrcFamilleMedicament)).BeginInit();
@@ -72,6 +72,71 @@ namespace gsb_application
             this.grp_medicament.TabIndex = 5;
             this.grp_medicament.TabStop = false;
             this.grp_medicament.Text = "Medicament";
+            this.grp_medicament.Enter += new System.EventHandler(this.grp_medicament_Enter);
+            // 
+            // lbl_composition
+            // 
+            this.lbl_composition.AutoEllipsis = true;
+            this.lbl_composition.AutoSize = true;
+            this.lbl_composition.Location = new System.Drawing.Point(15, 96);
+            this.lbl_composition.Name = "lbl_composition";
+            this.lbl_composition.Size = new System.Drawing.Size(64, 13);
+            this.lbl_composition.TabIndex = 12;
+            this.lbl_composition.Text = "Composition";
+            // 
+            // lbl_effets
+            // 
+            this.lbl_effets.AutoSize = true;
+            this.lbl_effets.Location = new System.Drawing.Point(302, 160);
+            this.lbl_effets.Name = "lbl_effets";
+            this.lbl_effets.Size = new System.Drawing.Size(34, 13);
+            this.lbl_effets.TabIndex = 11;
+            this.lbl_effets.Text = "Effets";
+            // 
+            // lbl_contreIndication
+            // 
+            this.lbl_contreIndication.AutoSize = true;
+            this.lbl_contreIndication.Location = new System.Drawing.Point(15, 160);
+            this.lbl_contreIndication.Name = "lbl_contreIndication";
+            this.lbl_contreIndication.Size = new System.Drawing.Size(86, 13);
+            this.lbl_contreIndication.TabIndex = 10;
+            this.lbl_contreIndication.Text = "Contre-indication";
+            // 
+            // btn_validerNouveauMedicament
+            // 
+            this.btn_validerNouveauMedicament.Location = new System.Drawing.Point(226, 278);
+            this.btn_validerNouveauMedicament.Name = "btn_validerNouveauMedicament";
+            this.btn_validerNouveauMedicament.Size = new System.Drawing.Size(140, 23);
+            this.btn_validerNouveauMedicament.TabIndex = 6;
+            this.btn_validerNouveauMedicament.Text = "Valider";
+            this.btn_validerNouveauMedicament.UseVisualStyleBackColor = true;
+            this.btn_validerNouveauMedicament.Click += new System.EventHandler(this.btn_validerNouveauMedicament_Click);
+            // 
+            // txt_composition
+            // 
+            this.txt_composition.Location = new System.Drawing.Point(18, 112);
+            this.txt_composition.Name = "txt_composition";
+            this.txt_composition.ReadOnly = true;
+            this.txt_composition.Size = new System.Drawing.Size(559, 20);
+            this.txt_composition.TabIndex = 9;
+            // 
+            // txt_effets
+            // 
+            this.txt_effets.Location = new System.Drawing.Point(301, 176);
+            this.txt_effets.Name = "txt_effets";
+            this.txt_effets.ReadOnly = true;
+            this.txt_effets.Size = new System.Drawing.Size(277, 96);
+            this.txt_effets.TabIndex = 8;
+            this.txt_effets.Text = "";
+            // 
+            // txt_contreIndications
+            // 
+            this.txt_contreIndications.Location = new System.Drawing.Point(18, 176);
+            this.txt_contreIndications.Name = "txt_contreIndications";
+            this.txt_contreIndications.ReadOnly = true;
+            this.txt_contreIndications.Size = new System.Drawing.Size(277, 96);
+            this.txt_contreIndications.TabIndex = 7;
+            this.txt_contreIndications.Text = "";
             // 
             // cmb_medicament
             // 
@@ -127,16 +192,6 @@ namespace gsb_application
             this.lbl_familleMedicament.TabIndex = 0;
             this.lbl_familleMedicament.Text = "Famille";
             // 
-            // btn_validerNouveauMedicament
-            // 
-            this.btn_validerNouveauMedicament.Location = new System.Drawing.Point(226, 278);
-            this.btn_validerNouveauMedicament.Name = "btn_validerNouveauMedicament";
-            this.btn_validerNouveauMedicament.Size = new System.Drawing.Size(140, 23);
-            this.btn_validerNouveauMedicament.TabIndex = 6;
-            this.btn_validerNouveauMedicament.Text = "Valider";
-            this.btn_validerNouveauMedicament.UseVisualStyleBackColor = true;
-            this.btn_validerNouveauMedicament.Click += new System.EventHandler(this.btn_validerNouveauMedicament_Click);
-            // 
             // bndSrcMedicament
             // 
             this.bndSrcMedicament.DataSource = typeof(gsb_application.medicament);
@@ -144,60 +199,6 @@ namespace gsb_application
             // bndSrcFamilleMedicament
             // 
             this.bndSrcFamilleMedicament.DataSource = typeof(gsb_application.famille);
-            // 
-            // txt_contreIndications
-            // 
-            this.txt_contreIndications.Location = new System.Drawing.Point(18, 176);
-            this.txt_contreIndications.Name = "txt_contreIndications";
-            this.txt_contreIndications.ReadOnly = true;
-            this.txt_contreIndications.Size = new System.Drawing.Size(277, 96);
-            this.txt_contreIndications.TabIndex = 7;
-            this.txt_contreIndications.Text = "";
-            // 
-            // txt_effets
-            // 
-            this.txt_effets.Location = new System.Drawing.Point(301, 176);
-            this.txt_effets.Name = "txt_effets";
-            this.txt_effets.ReadOnly = true;
-            this.txt_effets.Size = new System.Drawing.Size(277, 96);
-            this.txt_effets.TabIndex = 8;
-            this.txt_effets.Text = "";
-            // 
-            // txt_composition
-            // 
-            this.txt_composition.Location = new System.Drawing.Point(18, 112);
-            this.txt_composition.Name = "txt_composition";
-            this.txt_composition.ReadOnly = true;
-            this.txt_composition.Size = new System.Drawing.Size(559, 20);
-            this.txt_composition.TabIndex = 9;
-            // 
-            // lbl_contreIndication
-            // 
-            this.lbl_contreIndication.AutoSize = true;
-            this.lbl_contreIndication.Location = new System.Drawing.Point(15, 160);
-            this.lbl_contreIndication.Name = "lbl_contreIndication";
-            this.lbl_contreIndication.Size = new System.Drawing.Size(86, 13);
-            this.lbl_contreIndication.TabIndex = 10;
-            this.lbl_contreIndication.Text = "Contre-indication";
-            // 
-            // lbl_effets
-            // 
-            this.lbl_effets.AutoSize = true;
-            this.lbl_effets.Location = new System.Drawing.Point(302, 160);
-            this.lbl_effets.Name = "lbl_effets";
-            this.lbl_effets.Size = new System.Drawing.Size(34, 13);
-            this.lbl_effets.TabIndex = 11;
-            this.lbl_effets.Text = "Effets";
-            // 
-            // lbl_composition
-            // 
-            this.lbl_composition.AutoEllipsis = true;
-            this.lbl_composition.AutoSize = true;
-            this.lbl_composition.Location = new System.Drawing.Point(15, 96);
-            this.lbl_composition.Name = "lbl_composition";
-            this.lbl_composition.Size = new System.Drawing.Size(64, 13);
-            this.lbl_composition.TabIndex = 12;
-            this.lbl_composition.Text = "Composition";
             // 
             // AjouterMedicament
             // 

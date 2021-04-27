@@ -18,6 +18,7 @@ namespace gsb_application
         public gsbEntities()
             : base("name=gsbEntities")
         {
+            this.Configuration.LazyLoadingEnabled = false;
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

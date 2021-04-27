@@ -58,15 +58,16 @@ namespace gsb_application
             // ajouterToolStripMenuItem
             // 
             this.ajouterToolStripMenuItem.Name = "ajouterToolStripMenuItem";
-            this.ajouterToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+            this.ajouterToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.ajouterToolStripMenuItem.Text = "Ajouter";
             this.ajouterToolStripMenuItem.Click += new System.EventHandler(this.ajouterToolStripMenuItem_Click);
             // 
             // visualisationToolStripMenuItem
             // 
             this.visualisationToolStripMenuItem.Name = "visualisationToolStripMenuItem";
-            this.visualisationToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+            this.visualisationToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.visualisationToolStripMenuItem.Text = "Visualiser";
+            this.visualisationToolStripMenuItem.Click += new System.EventHandler(this.visualisationToolStripMenuItem_Click);
             // 
             // MenuGSB
             // 
