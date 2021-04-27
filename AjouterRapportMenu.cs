@@ -132,9 +132,7 @@ namespace gsb_application
                         nouvelleOffre.idMedicament = m.IdMedicament;
                         nouvelleOffre.idRapport = idNouveauRapport;
                         nouvelleOffre.quantite = Convert.ToInt32(m.QuantiteMedicament);
-                        richTxt_bilan.Text += nouvelleOffre.idMedicament + " - " + nouvelleOffre.idRapport + " - " + nouvelleOffre.quantite + "\n";
                         this.gsbData.offrir.Add(nouvelleOffre);
-                        
                     }
                     this.gsbData.SaveChanges();
                     this.Close();

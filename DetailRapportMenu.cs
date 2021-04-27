@@ -50,12 +50,44 @@ namespace gsb_application
 
         private void btn_ajouterMedicament_Click(object sender, EventArgs e)
         {
-
+            AjouterMedicament menu = new AjouterMedicament(this.gsbData, this.lesMedicaments);
+            if (menu.ShowDialog() == DialogResult.OK)
+            {
+                this.dataGridMedicament.DataSource = new BindingSource(new BindingList<Medic>(this.lesMedicaments), null);
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btn_Sauvegarder_Click(object sender, EventArgs e)
+        {
+            foreach(Medic m in lesMedicaments)
+            {
+                var query = from off in gsbData.offrir
+                            where off.idMedicament == m.IdMedicament && off.idRapport == detailRapport.Rapport
+                            select off;
+
+                if(query.Any())
+                {
+                    foreach (offrir off in query)
+                    {
+                        off.quantite = m.QuantiteMedicament;
+                    }
+                }
+                else
+                {
+                    offrir nouvelleOffre = new offrir();
+                    nouvelleOffre.idMedicament = m.IdMedicament;
+                    nouvelleOffre.idRapport = detailRapport.Rapport;
+                    nouvelleOffre.quantite = Convert.ToInt32(m.QuantiteMedicament);
+                    this.gsbData.offrir.Add(nouvelleOffre);
+                }
+            }
+            this.gsbData.SaveChanges();
+            this.Close();
         }
     }
 }
